@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Produto</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center; /* Centraliza o texto do h1 */
+      width: 100%;
+      max-width: 400px; /* Ajuste conforme necessário */
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 20px; /* Espaço entre o h1 e o formulário */
+    }
+    input[type="submit"] {
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastrando novo Produto</h1>
+    <hr>
+
+    <form action="/editar_produto/{{dado[0]}}" method="POST">
+       <!-- Nome --> 
+      <div class="nome">
+        <label for="nome">Nome</label><br>
+        <input type="text" name="nome" value='{{dado[1]}}'>
+      </div>
+
+      <!-- Marca -->
+      <div class="marca">
+        <label for="marca">Marca</label><br>
+        <input type="text" name="marca" value='{{dado[2]}}'>
+      </div>
+
+        <!-- categoria -->
+      <div class="categoria">
+        <label for="categoria">Categoria</label><br>
+        <input type="text" name="categoria" value='{{dado[3]}}'>
+      </div>
+
+      <!-- Preço -->
+      <div class="preco">
+        <label for="preco">Preço</label><br>
+        <input type="number" name="preco" step="0.01" value="{{dado[4]}}">
+      </div>
+
+      <!-- Quantidade -->
+      <div class="qtd">
+        <label for="qtd">Quantidade</label><br>
+        <input type="number" name="qtd" value="{{dado[5]}}">
+      </div>
+      <input type="submit" value="Concluir">
+
+    </form>
+  </div>
+</body>
+</html>

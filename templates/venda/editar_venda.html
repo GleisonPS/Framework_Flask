@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editar Venda</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      text-align: center; /* Centraliza o texto do h1 */
+      width: 100%;
+      max-width: 400px; /* Ajuste conforme necessário */
+    }
+   
+    input[type="submit"] {
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="container">
+    <h1>Editar Venda</h1>
+    <hr>
+
+    <form action="/editar_venda/{{dado[0]}}" method="POST">
+
+        <label for="data_venda">Data de Venda</label><br>
+        <input type="date" name="data_venda" value="{{dado[1]}}"> <br>
+        
+        <label for="valor_total">Valor Total</label><br>
+        <input type="number" name="valor_total" value="{{dado[2]}}"><br>
+
+        <label for="idcliente">ID do cliente</label><br>
+        <input type="number" name="idcliente" value="{{dado[3]}}"><br>
+
+        <label for="idproduto">IDProduto</label><br>
+        <input type="number" name="idproduto" value="{{dado[4]}}"><br>
+
+        <label for="funcionario">Funcionario</label><br>
+        <input type="text" name="funcionario" value="{{dado[5]}}"><br>
+
+        <input type="submit" value="Concluir">
+
+    </form>
+  </div>
+</body>
+</html>

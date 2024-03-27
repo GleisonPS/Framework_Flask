@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Venda</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+        div {
+            margin: 10px;
+            padding: 20px;
+            
+
+        }
+        .infons{
+            max-height: 270px;
+            display: flex;
+            justify-content: center;
+    
+        }
+        .cliente{
+          border: solid 1px rgb(220,220,220);
+          display: inline-block;
+          white-space: nowrap;
+          overflow-y: scroll;
+        }
+        .produto{
+          border: solid 1px rgb(220,220,220);
+          display: inline-block;
+          white-space: nowrap;
+          overflow-y: scroll;
+        }
+
+        .formulario{
+            display: flex;
+            justify-content: center;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="infons">
+        <div class="cliente">
+            <table border="1">
+                <h1>Cliente</h1>
+                <tr class="topo">
+                    <td>ID</td>
+                    <td>Nome</td>
+                </tr>
+                {% for row in dados[0] %}
+                <tr>
+                    
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="produto">
+            <table border="1">
+                <h1>Produto</h1>
+                <tr class="topo">
+                    <td>ID</td>
+                    <td>Nome</td>
+                </tr>
+                {% for row in dados[1]%}
+                <tr>
+                    
+                    <td>{{row[0]}}</td>
+                    <td>{{row[1]}}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+    <hr>
+    <br>
+    <div class="formulario">
+        <form action="{{url_for('nova_venda')}}" method="POST">
+            <label for="idvenda">IdVenda</label><br>
+            <input type="number" name="idvenda"><br>
+
+            <label for="data_venda">Data de Venda</label><br>
+            <input type="date" name="data_venda"> <br>
+            
+            <label for="valor_total">Valor Total</label><br>
+            <input type="number" name="valor_total"><br>
+
+            <label for="idcliente">ID do cliente</label><br>
+            <input type="number" name="idcliente"><br>
+
+            <label for="idproduto">IDProduto</label><br>
+            <input type="number" name="idproduto"><br>
+
+            <label for="funcionario">Funcionario</label><br>
+            <input type="text" name="funcionario"><br>
+
+            <input type="submit" value="Cadastrar Venda">
+        </form>
+    </div>
+</body>
+</html>

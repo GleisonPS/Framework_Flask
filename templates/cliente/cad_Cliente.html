@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Clientes</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            text-align: center; /* Centraliza o texto do h1 */
+            width: 100%;
+            max-width: 400px; /* Ajuste conforme necessário */
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 20px; /* Espaço entre o h1 e o formulário */
+        }
+        input[type="submit"] {
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastrando novo cliente</h1>
+        <hr>
+        
+        <form action="{{url_for('novo_cliente')}}" method="post">
+
+            <div class="idcliente">
+                <label for="idcliente">Id Cliente</label><br>
+                <input type="number" name="idcliente">
+            </div>
+
+            <div class="nome">
+                <label for="nome">Nome</label><br>
+                <input type="text" name="nome">
+            </div>
+
+            <!--Gmail-->
+            <div class="gmail">
+                <label for="gmail">Gmail</label><br>
+                <input type="text" name="gmail" class="gmail">
+            </div>
+
+            <!--Cidade-->
+            <div>
+                <label for="cidade">Cidade</label><br>
+                <input type="text" name="cidade">
+            </div>
+            
+            <!--Telefone-->
+            <div>
+                <label for="tell">Telefone</label><br>
+                <input type="tel" name="tell">
+            </div>
+            
+            <!--Data de nacimento-->
+            <div class="data_nasc">
+                <label for="data_nasc">Data de Nacimento</label><br>
+                <input type="date" name="data_nasc">
+            </div>
+            <input type="submit" value="Adicionar">
+        </form>
+    </div>
+</body>
+</html>

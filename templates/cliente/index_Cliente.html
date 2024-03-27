@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            
+        }
+        h1 {
+            border: 2px #eee solid;
+            color: rgba(31, 23, 23, 0.822);
+            text-align: center;
+            padding: 10px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .btn{
+            padding: 6px;
+            border: 1px solid rgba(0, 0, 0, 0);
+            border-radius:45%;
+            text-decoration: none;
+            background-color: rgb(49, 133, 212);
+            color: rgb(7, 42, 199);
+        }
+        .btn:hover {
+            color: blue;
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    
+    <center>
+    <h1>Cliente</h1>
+    <br>
+    
+    <br>
+    <table border="1">
+        <tr class="topo">
+            <td>ID</td>
+            <td>Nome</td>
+            <td>Gmail</td>
+            <td>Cidade</td>
+            <td>Telefone</td>
+            <td>Data de Nacimento</td>
+            <td>Ação</td>
+        </tr>
+        {% for row in dados %}
+        <tr>
+            
+            <td>{{row[0]}}</td>
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+            <td>{{row[3]}}</td>
+            <td>{{row[4]}}</td>
+            <td>{{row[5]}}</td>
+            <td>
+                <a href="{{url_for('excluir',id=row[0])}}">Excluir</a><br>
+                <a href="{{url_for('editar_cliente',id=row[0])}}">Editar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <a href="{{url_for('home')}}" class="btn">Página Inicial</a>
+    <a href="{{url_for('novo_cliente')}}" class="btn">ADD usuario </a>
+    </center>
+</body>
+</html>
